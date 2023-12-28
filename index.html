@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Suku Bunga</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Analisis Suku Bunga</h1>
+        <form>
+            <div class="form-group">
+                <label for="modal">Modal:</label>
+                <input type="number" class="form-control" id="modal" placeholder="Masukkan modal">
+            </div>
+
+            <div class="form-group">
+                <label for="persen">Persentase Bunga:</label>
+                <input type="number" class="form-control" id="persen" placeholder="Masukkan persentase bunga">
+            </div>
+
+            <div class="form-group">
+                <label for="bulan">Jangka Waktu (bulan):</label>
+                <input type="number" class="form-control" id="bulan" placeholder="Masukkan jangka waktu dalam bulan">
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" onclick="hitungSukuBunga()">Hitung</button>
+        </form>
+
+        <div id="hasil" class="mt-4">
+            <h2>Hasil Analisis Suku Bunga</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Modal</th>
+                        <th>Persentase Bunga</th>
+                        <th>Jangka Waktu (bulan)</th>
+                        <th>Hasil Analisis</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelHasil">
+                    <!-- Hasil tabel akan ditampilkan di sini -->
+                </tbody>
+            </table>
+        </div>
+
+        <button type="button" class="btn btn-info mt-4" data-toggle="modal" data-target="#modalPilihData">Bandingkan</button>
+
+        <!-- Tombol Reset -->
+        <button type="button" class="btn btn-danger mt-4" onclick="resetData()">Reset Data</button>
+
+        <!-- Modal untuk memilih data -->
+        <div class="modal fade" id="modalPilihData" tabindex="-1" role="dialog" aria-labelledby="modalPilihDataLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalPilihDataLabel">Pilih Data untuk Dibandingkan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <select class="custom-select" id="selectData1">
+                            <option selected disabled>Pilih Data Pertama</option>
+                        </select>
+                        <select class="custom-select mt-2" id="selectData2">
+                            <option selected disabled>Pilih Data Kedua</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="bandingkanDataTerpilih()">Bandingkan</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perbandingan" class="mt-4">
+            <h2>Perbandingan Bunga</h2>
+            <p id="hasilBanding">Hasil perbandingan akan muncul di sini.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
